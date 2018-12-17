@@ -1,0 +1,4 @@
+The file contains one line per broken hash.
+Each line contains the hash value, one space character, the password and then the end of line character.
+There are no headers or footers.
+Passwords can contain spaces.
