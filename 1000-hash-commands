@@ -1,0 +1,1 @@
+hashcat64 -m 500 -a 0 barmanhash/barmanra.txt wordlist/rockyou.txt
