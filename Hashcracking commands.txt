@@ -1,0 +1,104 @@
+#matching with rockyou
+
+hashcat64 -m 500 -a 0 barmanhash/md5.txt wordlist/rockyou.txt
+hashcat64 -m 1500 -a 0 barmanhash/des.txt wordlist/rockyou.txt
+hashcat64 -m 7400 -a 0 barmanhash/sha256.txt wordlist/rockyou.txt
+hashcat64 -m 1800 -a 0 barmanhash/sha512.txt wordlist/rockyou.txt
+
+#matching with american list
+
+hashcat64 -m 500 -a 0 barmanhash/md5.txt wordlist/americanlist.txt
+hashcat64 -m 1500 -a 0 barmanhash/des.txt wordlist/americanlist.txt
+hashcat64 -m 7400 -a 0 barmanhash/sha256.txt wordlist/americanlist.txt
+hashcat64 -m 1800 -a 0 barmanhash/sha512.txt wordlist/americanlist.txt
+
+#matching with british list
+
+hashcat64 -m 500 -a 0 barmanhash/md5.txt wordlist/britishlist.txt
+hashcat64 -m 1500 -a 0 barmanhash/des.txt wordlist/britishlist.txt
+hashcat64 -m 7400 -a 0 barmanhash/sha256.txt wordlist/britishlist.txt
+hashcat64 -m 1800 -a 0 barmanhash/sha512.txt wordlist/britishlist.txt
+
+#matching with unix list
+
+hashcat64 -m 500 -a 0 barmanhash/md5.txt wordlist/unix.txt
+hashcat64 -m 1500 -a 0 barmanhash/des.txt wordlist/unix.txt
+hashcat64 -m 7400 -a 0 barmanhash/sha256.txt wordlist/unix.txt
+hashcat64 -m 1800 -a 0 barmanhash/sha512.txt wordlist/unix.txt
+
+
+#masking for 4 letters
+
+hashcat64 -m 500 -a 3 barmanhash/md5.txt ?l?l?l?l -p 0
+hashcat64 -m 1500 -a 3 barmanhash/des.txt ?l?l?l?l -p 0
+hashcat64 -m 7400 -a 3 barmanhash/sha256.txt ?l?l?l?l -p 0
+hashcat64 -m 1800 -a 3 barmanhash/sha512.txt ?l?l?l?l -p 0
+
+#matching for 5 letters
+
+hashcat64 -m 500 -a 3 barmanhash/md5.txt ?l?l?l?l?l -p 0
+hashcat64 -m 1500 -a 3 barmanhash/des.txt ?l?l?l?l?l -p 0
+hashcat64 -m 7400 -a 3 barmanhash/sha256.txt ?l?l?l?l?l -p 0
+hashcat64 -m 1800 -a 3 barmanhash/sha512.txt ?l?l?l?l?l -p 0
+
+
+#using combinator attack for md5
+
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/britishlist.txt wordlist/americanlist.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/americanlist.txt wordlist/britishlist.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/rockyou.txt wordlist/americanlist.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/americanlist.txt wordlist/rockyou.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/rockyou.txt wordlist/britishlist.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/britishlist.txt wordlist/rockyou.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/unix.txt wordlist/unix.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/britishlist.txt wordlist/britishlist.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/americanlist.txt wordlist/americanlist.txt
+hashcat64 -m 500 -a 1 barmanhash/md5.txt wordlist/rockyou.txt wordlist/rockyou.txt
+
+#using combinator attack for des
+
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/britishlist.txt wordlist/americanlist.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/americanlist.txt wordlist/britishlist.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/rockyou.txt wordlist/americanlist.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/americanlist.txt wordlist/rockyou.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/rockyou.txt wordlist/britishlist.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/britishlist.txt wordlist/rockyou.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/unix.txt wordlist/unix.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/britishlist.txt wordlist/britishlist.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/americanlist.txt wordlist/americanlist.txt
+hashcat64 -m 1500 -a 1 barmanhash/des.txt wordlist/rockyou.txt wordlist/rockyou.txt
+
+#using combinator attack for sha256
+
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/britishlist.txt wordlist/americanlist.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/americanlist.txt wordlist/britishlist.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/rockyou.txt wordlist/americanlist.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/americanlist.txt wordlist/rockyou.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/rockyou.txt wordlist/britishlist.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/britishlist.txt wordlist/rockyou.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/unix.txt wordlist/unix.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/britishlist.txt wordlist/britishlist.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/americanlist.txt wordlist/americanlist.txt
+hashcat64 -m 7400 -a 1 barmanhash/sha256.txt wordlist/rockyou.txt wordlist/rockyou.txt
+
+#using combinator attack for sha512
+
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/britishlist.txt wordlist/americanlist.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/americanlist.txt wordlist/britishlist.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/rockyou.txt wordlist/americanlist.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/americanlist.txt wordlist/rockyou.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/rockyou.txt wordlist/britishlist.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/britishlist.txt wordlist/rockyou.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/unix.txt wordlist/unix.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/britishlist.txt wordlist/britishlist.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/americanlist.txt wordlist/americanlist.txt
+hashcat64 -m 1800 -a 1 barmanhash/sha512.txt wordlist/rockyou.txt wordlist/rockyou.txt
+
+
+
+
+#running attacks for pbkdf2
+
+hashcat64 -m 10900 -a 0 barmanhash/pbkdf2.txt wordlist/rockyou.txt -p 0
+hashcat64 -m 10900 -a 0 barmanhash/pbkdf2.txt wordlist/unix.txt -p 0
+hashcat64 -m 10900 -a 3 barmanhash/pbkdf2.txt ?l?l?l?l?l
